@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Portfolio Experience</title>
+    <title>Alexander Vance - Interactive Portfolio</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Phosphor Icons for UI Elements -->
@@ -27,11 +27,10 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             color: transparent;
-            /* Fallback contrast outline glow */
             filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.4));
         }
 
-        /* Fallback standard glow text when masked text blends into background */
+        /* Glow & Outline text styling */
         .glow-text-stroke {
             -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
         }
@@ -54,121 +53,61 @@
 </head>
 <body class="min-h-screen antialiased selection:bg-indigo-500 selection:text-white">
 
-    <!-- Mock Login Gate Screen -->
-    <div id="login-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-xl transition-opacity duration-500">
-        <div class="w-full max-w-md p-8 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-2xl text-center space-y-6 transform transition-all duration-300 scale-100">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 mb-2">
-                <i class="ph ph-user-circle text-4xl"></i>
-            </div>
-            <div>
-                <h2 class="text-2xl font-bold tracking-tight text-white">Welcome Back</h2>
-                <p class="text-slate-400 text-sm mt-1">Log in to enter your personalized dashboard</p>
-            </div>
-            <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4 text-left">
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Your Name</label>
-                    <input type="text" id="login-name-input" required value="ALEXANDER VANCE" 
-                        class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition">
-                </div>
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Passcode</label>
-                    <input type="password" required value="••••••••" 
-                        class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition">
-                </div>
-                <button type="submit" 
-                    class="w-full py-3.5 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/50 transition duration-200">
-                    Enter Portal
-                </button>
-            </form>
-            <p class="text-xs text-slate-500">Demo state • Click enter to load showcase</p>
-        </div>
-    </div>
-            
-            <div class="h-4 w-[1px] bg-slate-700"></div>
-
-            <!-- Image Upload Trigger -->
-            <label class="cursor-pointer flex items-center gap-2 bg-indigo-600/30 hover:bg-indigo-600/50 border border-indigo-500/40 text-indigo-200 px-3.5 py-1.5 rounded-full text-xs font-semibold transition shrink-0">
-                <i class="ph ph-upload-simple text-sm"></i>
-                <span>Change Image</span>
-                <input type="file" id="hero-image-upload" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
-            </label>
-        </div>
-    </div>
-
     <!-- Hero Section -->
-    <header class="relative w-full h-screen overflow-hidden flex flex-col justify-between items-center text-center px-4">
-        <!-- Background Image Container -->
-        <div id="hero-bg" 
-            class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 scale-105"
-            style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=80');">
-            <!-- Subtle Overlay Gradient for atmosphere -->
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to="#0b0f17""></div>
-        </div>
+<header class="relative w-full h-screen overflow-hidden text-left px-8 py-8">
+    <!-- Background Image Container -->
+    <div id="hero-bg" 
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 scale-105"
+        style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=80');">
+        <!-- Subtle Overlay Gradient for atmosphere -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/20 via-transparent to-[#0b0f17]"></div>
+    </div>
 
-        <!-- Top Spacer -->
-        <div></div>
+    <!-- Bottom Left Text Container -->
+    <div class="absolute bottom-12 left-8 md:left-12 z-20 select-none max-w-4xl">
+        <p class="text-xs md:text-sm uppercase tracking-[0.3em] text-slate-900 font-bold mb-2">
+            Portfolio & Professional Information Database
+        </p>
+        
+        <!-- Static Black Heading -->
+        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-black tracking-tight uppercase leading-none drop-shadow-sm">
+            Andrew "Larson" Larson
+        </h1>
+    </div>
 
-        <!-- Center Name Display with Silhouette Mask Effect -->
-        <div class="relative z-10 space-y-4 max-w-5xl mx-auto my-auto select-none">
-            <p class="text-xs md:text-sm uppercase tracking-[0.4em] text-indigo-300 font-semibold drop-shadow-md">
-                Portfolio & Interactive Hub
-            </p>
-            
-            <!-- Silhouette Text Element -->
-            <h1 id="silhouette-name" 
-                class="silhouette-text glow-text-stroke text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter uppercase leading-none py-2"
-                style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=80');">
-                ALEXANDER VANCE
-            </h1>
-            
-            <p class="text-slate-300/80 text-sm md:text-base font-light max-w-md mx-auto drop-shadow">
-                Visual Artist & Creative Technologist
-            </p>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="relative z-10 pb-8 flex flex-col items-center gap-2 animate-bounce">
-            <span class="text-xs text-slate-400 uppercase tracking-widest font-medium">Scroll to explore</span>
-            <i class="ph ph-caret-down text-xl text-indigo-400"></i>
-        </div>
-
-        <!-- Dynamic Fade-out gradient overlay to smooth transition into dark mode -->
-        <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0b0f17] to-transparent pointer-events-none z-20"></div>
-    </header>
+    <!-- Dynamic Fade-out gradient overlay to smooth transition into dark mode -->
+    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0b0f17] to-transparent pointer-events-none z-10"></div>
+</header>
 
     <!-- Main Content Container with Dark Mode Background Fade -->
     <main class="relative z-30 bg-[#0b0f17] text-slate-200">
         
-        <!-- Ambient Decorative Glows -->
+        <!-- Ambient Decorative Background Glows -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none"></div>
         <div class="absolute top-96 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-24">
 
-            <!-- Introductory Section -->
+            <!-- Introductory Overview Section -->
             <section class="max-w-3xl mx-auto text-center space-y-6">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-indigo-400 font-medium">
-                    <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
-                    Overview & Vision
-                </div>
+                
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">
-                    Crafting Immersive Digital Experiences
+                    Howdy!
                 </h2>
                 <p class="text-slate-400 text-base md:text-lg leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                    Welcome in! Here is a repository of all of the information about me yall may be interested in, whether that be an employer looking for my references & portfolio, a family member trying to download pictures I took, or a stranger who Ive directed here to use a model I made. This is where you'll find everything you might want to know about my professional & creative endeavors.
             </section>
 
-            <!-- 5 Navigation Link Boxes (Two Row Layout: 3 Top, 2 Bottom) -->
+            <!-- Navigation Directory Link Boxes -->
             <section class="space-y-8">
                 <div class="text-center space-y-2">
-                    <h3 class="text-xs uppercase tracking-widest text-slate-500 font-semibold">Explore Directory</h3>
+                    <h3 class="text-xs uppercase tracking-widest text-slate-500 font-semibold">Directory</h3>
                     <p class="text-xl font-bold text-slate-200">Select a destination</p>
                 </div>
 
-                <!-- Grid System -->
+                <!-- Grid Layout System -->
                 <div class="space-y-6">
-                    <!-- Row 1: 3 Boxes -->
+                    <!-- Row 1: 3 Cards -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <!-- Box 1: Resume -->
                         <a href="#resume" onclick="handleNavigation('Resume')" class="group relative p-8 rounded-3xl bg-slate-900/50 border border-slate-800/80 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col justify-between overflow-hidden">
@@ -178,7 +117,7 @@
                                     <i class="ph ph-file-text text-2xl"></i>
                                 </div>
                                 <h4 class="text-xl font-bold text-white group-hover:text-indigo-300 transition">Resume</h4>
-                                <p class="text-sm text-slate-400 line-clamp-2">View detailed professional experience, education, and career history.</p>
+                                <p class="text-sm text-slate-400 line-clamp-2">View past and present resumes as well as a plethora of cover letters.</p>
                             </div>
                             <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-indigo-400 group-hover:translate-x-1 transition duration-300">
                                 View Resume <i class="ph ph-arrow-right"></i>
@@ -193,10 +132,10 @@
                                     <i class="ph ph-address-book text-2xl"></i>
                                 </div>
                                 <h4 class="text-xl font-bold text-white group-hover:text-blue-300 transition">Contacts</h4>
-                                <p class="text-sm text-slate-400 line-clamp-2">Reach out via email, phone, social networks, or location details.</p>
+                                <p class="text-sm text-slate-400 line-clamp-2">Access a comprehensive list of employers, professors, mentors, and coaches who I've worked with.</p>
                             </div>
                             <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-blue-400 group-hover:translate-x-1 transition duration-300">
-                                Get in Touch <i class="ph ph-arrow-right"></i>
+                                Access List <i class="ph ph-arrow-right"></i>
                             </div>
                         </a>
 
@@ -208,7 +147,7 @@
                                     <i class="ph ph-certificate text-2xl"></i>
                                 </div>
                                 <h4 class="text-xl font-bold text-white group-hover:text-purple-300 transition">Certifications</h4>
-                                <p class="text-sm text-slate-400 line-clamp-2">Verified professional credentials, licenses, and badges.</p>
+                                <p class="text-sm text-slate-400 line-clamp-2">Verified professional credentials, diplomas, licenses, and awards.</p>
                             </div>
                             <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-purple-400 group-hover:translate-x-1 transition duration-300">
                                 View Credentials <i class="ph ph-arrow-right"></i>
@@ -216,7 +155,7 @@
                         </a>
                     </div>
 
-                    <!-- Row 2: 2 Centered Boxes -->
+                    <!-- Row 2: 2 Centered Cards -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                         <!-- Box 4: Engineering -->
                         <a href="#engineering" onclick="handleNavigation('Engineering')" class="group relative p-8 rounded-3xl bg-slate-900/50 border border-slate-800/80 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col justify-between overflow-hidden">
@@ -226,7 +165,7 @@
                                     <i class="ph ph-cpu text-2xl"></i>
                                 </div>
                                 <h4 class="text-xl font-bold text-white group-hover:text-emerald-300 transition">Engineering</h4>
-                                <p class="text-sm text-slate-400 line-clamp-2">Technical projects, software architecture, and engineering work.</p>
+                                <p class="text-sm text-slate-400 line-clamp-2">See how I've solved problems around me with my trusty 3d printer.</p>
                             </div>
                             <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition duration-300">
                                 Explore Projects <i class="ph ph-arrow-right"></i>
@@ -241,88 +180,43 @@
                                     <i class="ph ph-camera text-2xl"></i>
                                 </div>
                                 <h4 class="text-xl font-bold text-white group-hover:text-rose-300 transition">Photography</h4>
-                                <p class="text-sm text-slate-400 line-clamp-2">Visual portfolio showcasing creative capture and photography.</p>
+                                <p class="text-sm text-slate-400 line-clamp-2">Visual portfolio showcasing capture and photography.</p>
                             </div>
                             <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-rose-400 group-hover:translate-x-1 transition duration-300">
                                 View Gallery <i class="ph ph-arrow-right"></i>
                             </div>
                         </a>
                     </div>
-
-                    <!-- Row 2: 2 Centered Boxes -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        <!-- Box 4 -->
-                        <a href="#journal" onclick="handleNavigation('Articles & Journal')" class="group relative p-8 rounded-3xl bg-slate-900/50 border border-slate-800/80 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col justify-between overflow-hidden">
-                            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/15 transition duration-500"></div>
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition duration-300">
-                                    <i class="ph ph-book-open text-2xl"></i>
-                                </div>
-                                <h4 class="text-xl font-bold text-white group-hover:text-emerald-300 transition">Journal & Thoughts</h4>
-                                <p class="text-sm text-slate-400 line-clamp-2">Articles and insights on design systems, code, and tech.</p>
-                            </div>
-                            <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition duration-300">
-                                Read Posts <i class="ph ph-arrow-right"></i>
-                            </div>
-                        </a>
-
-                        <!-- Box 5 -->
-                        <a href="#services" onclick="handleNavigation('Services & Consulting')" class="group relative p-8 rounded-3xl bg-slate-900/50 border border-slate-800/80 hover:border-indigo-500/50 hover:bg-slate-900/90 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col justify-between overflow-hidden">
-                            <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 rounded-full blur-2xl group-hover:bg-rose-500/15 transition duration-500"></div>
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 group-hover:bg-rose-500 group-hover:text-white transition duration-300">
-                                    <i class="ph ph-lightning text-2xl"></i>
-                                </div>
-                                <h4 class="text-xl font-bold text-white group-hover:text-rose-300 transition">Services</h4>
-                                <p class="text-sm text-slate-400 line-clamp-2">Available for freelance creative direction and web development.</p>
-                            </div>
-                            <div class="mt-6 flex items-center gap-2 text-xs font-semibold text-rose-400 group-hover:translate-x-1 transition duration-300">
-                                See Offerings <i class="ph ph-arrow-right"></i>
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </section>
 
-            <!-- Contact Info Section -->
+            <!-- Contact Info & Footer Section -->
             <section id="contact" class="pt-12 border-t border-slate-800/80">
                 <div class="bg-gradient-to-br from-slate-900 to-slate-950 p-8 md:p-12 rounded-3xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-8">
                     
                     <div class="space-y-3 text-center md:text-left">
                         <span class="text-xs uppercase tracking-widest text-indigo-400 font-semibold">Get in Touch</span>
-                        <h3 class="text-2xl md:text-3xl font-bold text-white">Let's build something extraordinary together</h3>
-                        <p class="text-slate-400 text-sm max-w-md">Open for collaborations, creative consulting, and technical leadership opportunities.</p>
+                        <h3 class="text-2xl md:text-3xl font-bold text-white">A people person, perfect for you.</h3>
+                        <p class="text-slate-400 text-sm max-w-md">Open for internships, social events, and all types of inquiries.</p>
                     </div>
 
                     <!-- Contact Details & Social Links -->
                     <div class="flex flex-col sm:flex-row items-center gap-6">
                         <div class="text-center sm:text-right space-y-1">
-                            <a href="mailto:alexander@example.com" class="text-sm font-semibold text-slate-200 hover:text-indigo-400 transition flex items-center gap-2">
-                                <i class="ph ph-envelope text-indigo-400"></i> alexander@example.com
+                            <a href="mailto:andrewelarson2007@gmail.com" class="text-sm font-semibold text-slate-200 hover:text-indigo-400 transition flex items-center gap-2">
+                                <i class="ph ph-envelope text-indigo-400"></i> andrewelarson2007@gmail.com
                             </a>
                             <p class="text-xs text-slate-500 flex items-center justify-center sm:justify-end gap-1">
-                                <i class="ph ph-map-pin"></i> San Francisco, CA
+                                <i class="ph ph-map-pin"></i> St Augustine, FL
                             </p>
                         </div>
 
-                        <!-- Social Icons -->
-                        <div class="flex items-center gap-3">
-                            <a href="#" onclick="handleSocial('GitHub')" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white flex items-center justify-center transition border border-slate-700/50" title="GitHub">
-                                <i class="ph ph-github-logo text-xl"></i>
-                            </a>
-                            <a href="#" onclick="handleSocial('Twitter/X')" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white flex items-center justify-center transition border border-slate-700/50" title="Twitter/X">
-                                <i class="ph ph-twitter-logo text-xl"></i>
-                            </a>
-                            <a href="#" onclick="handleSocial('LinkedIn')" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white flex items-center justify-center transition border border-slate-700/50" title="LinkedIn">
-                                <i class="ph ph-linkedin-logo text-xl"></i>
-                            </a>
-                        </div>
+                        
                     </div>
 
                 </div>
 
-                <div class="text-center text-xs text-slate-600 mt-12">
-                    &copy; <span id="year"></span> <span id="footer-name">Alexander Vance</span>. All rights reserved.
+              
                 </div>
             </section>
         </div>
@@ -335,64 +229,6 @@
     </div>
 
     <script>
-        // Set dynamic copyright year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Handle Mock Login Submission
-        function handleLogin(event) {
-            event.preventDefault();
-            const nameInput = document.getElementById('login-name-input').value.trim();
-            if (nameInput) {
-                updateDisplayName(nameInput);
-            }
-
-            const modal = document.getElementById('login-modal');
-            const customizer = document.getElementById('customizer-bar');
-            
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                customizer.classList.remove('hidden');
-                setTimeout(() => customizer.classList.remove('opacity-0'), 50);
-                showToast(`Welcome, ${nameInput || 'User'}! Customize your hero image anytime.`);
-            }, 500);
-        }
-
-        // Handle Dynamic Display Name Updates
-        const liveNameInput = document.getElementById('live-name-input');
-        const silhouetteText = document.getElementById('silhouette-name');
-        const footerName = document.getElementById('footer-name');
-
-        liveNameInput.addEventListener('input', (e) => {
-            updateDisplayName(e.target.value);
-        });
-
-        function updateDisplayName(newName) {
-            const name = newName || 'YOUR NAME';
-            silhouetteText.textContent = name;
-            footerName.textContent = name;
-            liveNameInput.value = name;
-        }
-
-        // Handle Hero Image Upload Preview
-        function handleImageUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const imageUrl = e.target.result;
-                    
-                    // Update main background
-                    document.getElementById('hero-bg').style.backgroundImage = `url('${imageUrl}')`;
-                    
-                    // Update silhouette text background to match mask perfectly
-                    silhouetteText.style.backgroundImage = `url('${imageUrl}')`;
-
-                    showToast('Background image updated!');
-                };
-                reader.readAsDataURL(file);
-            }
-        }
 
         // Toast feedback trigger
         function showToast(message) {
@@ -406,12 +242,12 @@
             }, 3500);
         }
 
-        // Card Link Mock Navigation handler
+        // Directory Card link navigation handler
         function handleNavigation(title) {
-            showToast(`Navigating to ${title} page...`);
+            showToast(`Navigating to ${title}...`);
         }
 
-        // Social Link Mock click handler
+        // Social Link click handler
         function handleSocial(platform) {
             showToast(`Opening ${platform} profile...`);
         }
