@@ -1,1 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume & Career Experience</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800;900&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0f17;
+            color: #f8fafc;
+        }
+
+        /* Swiper Customizations */
+        .swiper {
+            width: 100%;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            overflow: visible !important;
+        }
+
+        .swiper-slide {
+            width: 85%;
+            max-width: 780px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.4;
+        }
+
+        .swiper-slide-active {
+            opacity: 1;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-indigo-500 selection:text-white flex flex-col justify-between overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-[#0b0f17]/80 backdrop-blur-md border-b border-slate-800/80 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-400 hover:text-indigo-300 transition group">
+                <i class="ph ph-arrow-left text-lg group-hover:-translate-x-1 transition"></i>
+                <span>Back to Directory</span>
+            </a>
+            <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold">
+                Directory / Engineering
+            </span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="relative z-10 max-w-7xl mx-auto w-full px-6 py-8 space-y-12">
+
+        <!-- Hero Section -->
+        <section class="space-y-2 text-center md:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs text-emerald-300 font-semibold">
+                <i class="ph ph-cpu text-2xl"></i> Engineering
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+                Engineering
+            </h1>
+            <p class="text-slate-400 text-base md:text-lg max-w-2xl leading-relaxed">
+                See how I've solved problems around me with my trusty 3d printer.
+            </p>
+        </section>
+
+        <!-- Carousel Section -->
+        <section class="relative w-full py-4" style="overflow: visible;">
+            <!-- Controls -->
+            <button id="swiper-prev-btn" class="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-slate-900/90 border border-slate-700 text-white items-center justify-center hover:bg-indigo-600 transition shadow-2xl">
+                <i class="ph ph-caret-left text-xl"></i>
+            </button>
+            <button id="swiper-next-btn" class="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-slate-900/90 border border-slate-700 text-white items-center justify-center hover:bg-indigo-600 transition shadow-2xl">
+                <i class="ph ph-caret-right text-xl"></i>
+            </button>
+
+            <!-- Swiper Container -->
+            <div class="swiper main-swiper">
+                <div class="swiper-wrapper">
+
+                    <!-- Card 1 -->
+                    <div class="swiper-slide">
+                        <article class="w-full bg-slate-900/80 border-2 border-slate-700/80 rounded-3xl overflow-hidden flex flex-col md:flex-row hover:border-indigo-500 transition duration-300 shadow-2xl">
+                            <div class="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-slate-950 shrink-0">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Cover" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6 md:p-8 flex flex-col justify-between space-y-6 w-full">
+                                <div class="space-y-3">
+                                    <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest">Featured Entry • 2024</span>
+                                    <h3 class="text-2xl font-bold text-white leading-tight">Lead Technical Director</h3>
+                                    <p class="text-slate-400 text-sm leading-relaxed">
+                                        Managed engineering workflows, client interactions, and technical software implementation. Oversaw multi-disciplinary teams across various complex builds.
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                                    <button onclick="openOverlay(0)" class="inline-flex items-center gap-2 text-sm font-bold text-indigo-400 hover:text-indigo-300 transition group">
+                                        <span>Click for more</span>
+                                        <i class="ph ph-arrow-right group-hover:translate-x-1 transition"></i>
+                                    </button>
+                                    <span class="text-xs text-slate-500">Entry #1</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="swiper-slide">
+                        <article class="w-full bg-slate-900/80 border-2 border-slate-700/80 rounded-3xl overflow-hidden flex flex-col md:flex-row hover:border-purple-500 transition duration-300 shadow-2xl">
+                            <div class="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-slate-950 shrink-0">
+                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=80" alt="Cover" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6 md:p-8 flex flex-col justify-between space-y-6 w-full">
+                                <div class="space-y-3">
+                                    <span class="text-xs font-semibold text-purple-400 uppercase tracking-widest">Academic • 2022–2024</span>
+                                    <h3 class="text-2xl font-bold text-white leading-tight">Engineering & Computer Science</h3>
+                                    <p class="text-slate-400 text-sm leading-relaxed">
+                                        Specialized coursework in structural analysis, CAD design systems, dynamic mechanics, and modern software development pipelines.
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                                    <button onclick="openOverlay(1)" class="inline-flex items-center gap-2 text-sm font-bold text-purple-400 hover:text-purple-300 transition group">
+                                        <span>Click for more</span>
+                                        <i class="ph ph-arrow-right group-hover:translate-x-1 transition"></i>
+                                    </button>
+                                    <span class="text-xs text-slate-500">Entry #2</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="swiper-slide">
+                        <article class="w-full bg-slate-900/80 border-2 border-slate-700/80 rounded-3xl overflow-hidden flex flex-col md:flex-row hover:border-emerald-500 transition duration-300 shadow-2xl">
+                            <div class="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden bg-slate-950 shrink-0">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Cover" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6 md:p-8 flex flex-col justify-between space-y-6 w-full">
+                                <div class="space-y-3">
+                                    <span class="text-xs font-semibold text-emerald-400 uppercase tracking-widest">Consulting • 2023–2024</span>
+                                    <h3 class="text-2xl font-bold text-white leading-tight">Creative & Systems Consultant</h3>
+                                    <p class="text-slate-400 text-sm leading-relaxed">
+                                        Designed and delivered custom hardware solution models, 3D prototypes, and digital design templates for private clients.
+                                    </p>
+                                </div>
+                                <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                                    <button onclick="openOverlay(2)" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 hover:text-emerald-300 transition group">
+                                        <span>Click for more</span>
+                                        <i class="ph ph-arrow-right group-hover:translate-x-1 transition"></i>
+                                    </button>
+                                    <span class="text-xs text-slate-500">Entry #3</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Vertical Archive List -->
+        <section class="space-y-6 pt-6 border-t border-slate-800/80">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-xs uppercase tracking-widest text-slate-500 font-semibold">Directory Archive</h2>
+                    <p class="text-xl font-bold text-slate-200">All Entries</p>
+                </div>
+                <span class="text-xs text-slate-500">3 Records</span>
+            </div>
+
+            <div class="space-y-4">
+                <div onclick="openOverlay(0)" class="cursor-pointer p-5 md:p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-slate-700 transition duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                    <div class="flex items-start md:items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=200&q=80" alt="Thumb" class="w-16 h-16 rounded-xl object-cover border border-slate-800 shrink-0">
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2 text-xs text-indigo-400 font-medium">
+                                <span>Senior Position</span> • <span>Full-Time</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Technical Director & Systems Lead</h3>
+                            <p class="text-slate-400 text-xs md:text-sm max-w-xl">
+                                Directed full development lifecycle, system design, and project milestones.
+                            </p>
+                        </div>
+                    </div>
+                    <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-indigo-400 text-xs font-semibold hover:bg-indigo-600 hover:text-white transition">
+                        View Details <i class="ph ph-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div onclick="openOverlay(1)" class="cursor-pointer p-5 md:p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-slate-700 transition duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                    <div class="flex items-start md:items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=200&q=80" alt="Thumb" class="w-16 h-16 rounded-xl object-cover border border-slate-800 shrink-0">
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2 text-xs text-purple-400 font-medium">
+                                <span>Academic History</span> • <span>Degree/Certification</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">University Academic Credentials</h3>
+                            <p class="text-slate-400 text-xs md:text-sm max-w-xl">
+                                Completed advanced modules in computing, hardware modeling, and team leadership.
+                            </p>
+                        </div>
+                    </div>
+                    <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-purple-400 text-xs font-semibold hover:bg-purple-600 hover:text-white transition">
+                        View Details <i class="ph ph-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div onclick="openOverlay(2)" class="cursor-pointer p-5 md:p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-slate-700 transition duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                    <div class="flex items-start md:items-center gap-4">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=200&q=80" alt="Thumb" class="w-16 h-16 rounded-xl object-cover border border-slate-800 shrink-0">
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2 text-xs text-emerald-400 font-medium">
+                                <span>Consulting & Advisory</span> • <span>Contract</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Independent Solutions & Design</h3>
+                            <p class="text-slate-400 text-xs md:text-sm max-w-xl">
+                                Delivered physical 3D print models and digital software workflows for independent client requests.
+                            </p>
+                        </div>
+                    </div>
+                    <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-emerald-400 text-xs font-semibold hover:bg-emerald-600 hover:text-white transition">
+                        View Details <i class="ph ph-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Overlay Modal -->
+    <div id="modal-backdrop" onclick="handleBackdropClick(event)" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4 md:p-8">
+        <div id="modal-card" class="relative w-full max-w-5xl bg-slate-900 border-2 border-slate-700 rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[500px] max-h-[90vh]">
+            <button onclick="closeOverlay()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center border border-slate-700 transition">
+                <i class="ph ph-x text-lg"></i>
+            </button>
+            <div class="w-full md:w-1/2 h-64 md:h-auto bg-slate-950 relative overflow-hidden shrink-0">
+                <img id="overlay-image" src="" alt="Overlay Media" class="w-full h-full object-cover">
+            </div>
+            <div class="w-full md:w-1/2 flex flex-col justify-between p-6 md:p-8 space-y-6 overflow-y-auto">
+                <div class="space-y-6">
+                    <h2 id="overlay-title" class="text-2xl font-bold text-white">Entry Title</h2>
+                    <div class="flex items-center gap-2 border-b border-slate-800 pb-3">
+                        <button id="tab-btn-images" onclick="switchTab('images')" class="px-4 py-2 rounded-xl text-xs font-bold border transition bg-indigo-600 border-indigo-500 text-white">
+                            <i class="ph ph-image"></i> Images
+                        </button>
+                        <button id="tab-btn-text" onclick="switchTab('text')" class="px-4 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white transition">
+                            <i class="ph ph-article"></i> Text
+                        </button>
+                        <button id="tab-btn-files" onclick="switchTab('files')" class="px-4 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white transition">
+                            <i class="ph ph-folder"></i> Files
+                        </button>
+                    </div>
+                    <div id="tab-content-images" class="space-y-3">
+                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Associated Visuals</p>
+                        <div id="overlay-images-grid" class="grid grid-cols-2 gap-3"></div>
+                    </div>
+                    <div id="tab-content-text" class="hidden space-y-3">
+                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Detailed Description</p>
+                        <p id="overlay-text-body" class="text-slate-300 text-sm leading-relaxed whitespace-pre-line"></p>
+                    </div>
+                    <div id="tab-content-files" class="hidden space-y-3">
+                        <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Attachments & Downloads</p>
+                        <div id="overlay-files-list" class="space-y-2"></div>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-slate-800 flex justify-end">
+                    <button onclick="closeOverlay()" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 border-t border-slate-800/80 py-8 text-center text-xs text-slate-600">
+        &copy; <span id="year"></span> Andrew "Larson" Larson. All rights reserved.
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Page Logic Scripts -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Entry Data Store with File Paths & Download Attributes
+        const entriesData = [
+            {
+                title: "Lead Technical Director",
+                coverImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80",
+                text: "Managed engineering workflows, client interactions, and technical software implementation. Oversaw multi-disciplinary teams across various complex builds.",
+                gallery: [
+                    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80",
+                    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80"
+                ],
+                files: [
+                    {
+                        name: "Official Resume 2024",
+                        type: "PDF Document",
+                        icon: "ph-file-pdf",
+                        path: "./assets/docs/Official_Resume_2024.pdf",
+                        downloadName: "Andrew_Larson_Resume.pdf"
+                    },
+                    {
+                        name: "Cover Letter",
+                        type: "PDF Document",
+                        icon: "ph-file-pdf",
+                        path: "./assets/docs/Cover_Letter.pdf",
+                        downloadName: "Andrew_Larson_Cover_Letter.pdf"
+                    }
+                ]
+            },
+            {
+                title: "Engineering & Computer Science",
+                coverImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=80",
+                text: "Specialized coursework in structural analysis, CAD design systems, dynamic mechanics, and modern software development pipelines.",
+                gallery: [
+                    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80"
+                ],
+                files: [
+                    {
+                        name: "Academic Transcript",
+                        type: "PDF Record",
+                        icon: "ph-file-text",
+                        path: "./assets/docs/Academic_Transcript.pdf",
+                        downloadName: "Academic_Transcript_Official.pdf"
+                    }
+                ]
+            },
+            {
+                title: "Creative & Systems Consultant",
+                coverImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80",
+                text: "Designed and delivered custom hardware solution models, 3D prototypes, and digital design templates for private clients.",
+                gallery: [
+                    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80"
+                ],
+                files: [
+                    {
+                        name: "Project Dossier Archive",
+                        type: "ZIP Archive",
+                        icon: "ph-archive",
+                        path: "./assets/docs/Project_Dossier.zip",
+                        downloadName: "Project_Dossier_Archive.zip"
+                    }
+                ]
+            }
+        ];
+
+        // Swiper Initialization
+        let mainSwiper;
+        document.addEventListener('DOMContentLoaded', () => {
+            mainSwiper = new Swiper('.main-swiper', {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                spaceBetween: 24,
+                loop: true,
+                loopPreventsSliding: false,
+                loopAddBlank: true,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                navigation: {
+                    nextEl: '#swiper-next-btn',
+                    prevEl: '#swiper-prev-btn',
+                }
+            });
+        });
+
+        // Overlay & Tab Handlers
+        function openOverlay(index) {
+            const data = entriesData[index];
+            if (!data) return;
+
+            document.getElementById('overlay-title').textContent = data.title;
+            document.getElementById('overlay-image').src = data.coverImage;
+            document.getElementById('overlay-text-body').textContent = data.text;
+
+            // Render Images Tab
+            const imgGrid = document.getElementById('overlay-images-grid');
+            imgGrid.innerHTML = data.gallery.map(url => `
+                <img src="${url}" class="w-full h-28 object-cover rounded-xl border border-slate-800">
+            `).join('');
+
+            // Render Files Tab with download functionality
+            const fileList = document.getElementById('overlay-files-list');
+            fileList.innerHTML = data.files.map(f => `
+                <a href="${f.path}" download="${f.downloadName || ''}" class="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500 transition group">
+                    <div class="flex items-center gap-3">
+                        <i class="ph ${f.icon} text-indigo-400 text-xl"></i>
+                        <div>
+                            <p class="text-xs font-semibold text-slate-200 group-hover:text-indigo-300">${f.name}</p>
+                            <p class="text-[10px] text-slate-500">${f.type}</p>
+                        </div>
+                    </div>
+                    <i class="ph ph-download-simple text-slate-400 group-hover:text-indigo-400"></i>
+                </a>
+            `).join('');
+
+            switchTab('images');
+
+            const backdrop = document.getElementById('modal-backdrop');
+            backdrop.classList.remove('hidden');
+            setTimeout(() => backdrop.classList.remove('opacity-0'), 10);
+            
+            if (mainSwiper && mainSwiper.autoplay) {
+                mainSwiper.autoplay.stop();
+            }
+        }
+
+        function closeOverlay() {
+            const backdrop = document.getElementById('modal-backdrop');
+            backdrop.classList.add('opacity-0');
+            setTimeout(() => backdrop.classList.add('hidden'), 300);
+
+            if (mainSwiper && mainSwiper.autoplay) {
+                mainSwiper.autoplay.start();
+            }
+        }
+
+        function handleBackdropClick(event) {
+            if (event.target.id === 'modal-backdrop') {
+                closeOverlay();
+            }
+        }
+
+        function switchTab(tabName) {
+            const tabs = ['images', 'text', 'files'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                const content = document.getElementById(`tab-content-${t}`);
+                if (t === tabName) {
+                    btn.className = "px-4 py-2 rounded-xl text-xs font-bold border transition bg-indigo-600 border-indigo-500 text-white";
+                    content.classList.remove('hidden');
+                } else {
+                    btn.className = "px-4 py-2 rounded-xl text-xs font-bold border border-slate-800 bg-slate-950 text-slate-400 hover:text-white transition";
+                    content.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
