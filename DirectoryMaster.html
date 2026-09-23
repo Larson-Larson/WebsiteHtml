@@ -300,21 +300,35 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <!-- Page Logic Scripts -->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
+        // Entry Data Store with File Paths & Download Attributes
         const entriesData = [
             {
                 title: "Lead Technical Director",
                 coverImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                text: "Managed engineering workflows, client interactions, and technical software implementation. Oversaw multi-disciplinary teams across various complex builds.",
                 gallery: [
                     "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80",
                     "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80"
                 ],
                 files: [
-                    { name: "Official_Resume_2024.pdf", type: "PDF Document", icon: "ph-file-pdf" },
-                    { name: "Cover_Letter_Technical_Lead.pdf", type: "PDF Document", icon: "ph-file-pdf" }
+                    {
+                        name: "Official Resume 2024",
+                        type: "PDF Document",
+                        icon: "ph-file-pdf",
+                        path: "./assets/docs/Official_Resume_2024.pdf",
+                        downloadName: "Andrew_Larson_Resume.pdf"
+                    },
+                    {
+                        name: "Cover Letter",
+                        type: "PDF Document",
+                        icon: "ph-file-pdf",
+                        path: "./assets/docs/Cover_Letter.pdf",
+                        downloadName: "Andrew_Larson_Cover_Letter.pdf"
+                    }
                 ]
             },
             {
@@ -325,7 +339,13 @@
                     "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80"
                 ],
                 files: [
-                    { name: "Academic_Transcript_Official.pdf", type: "PDF Record", icon: "ph-file-text" }
+                    {
+                        name: "Academic Transcript",
+                        type: "PDF Record",
+                        icon: "ph-file-text",
+                        path: "./assets/docs/Academic_Transcript.pdf",
+                        downloadName: "Academic_Transcript_Official.pdf"
+                    }
                 ]
             },
             {
@@ -336,11 +356,18 @@
                     "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80"
                 ],
                 files: [
-                    { name: "Project_Dossier_Archive.zip", type: "ZIP Archive", icon: "ph-archive" }
+                    {
+                        name: "Project Dossier Archive",
+                        type: "ZIP Archive",
+                        icon: "ph-archive",
+                        path: "./assets/docs/Project_Dossier.zip",
+                        downloadName: "Project_Dossier_Archive.zip"
+                    }
                 ]
             }
         ];
 
+        // Swiper Initialization
         let mainSwiper;
         document.addEventListener('DOMContentLoaded', () => {
             mainSwiper = new Swiper('.main-swiper', {
@@ -362,6 +389,7 @@
             });
         });
 
+        // Overlay & Tab Handlers
         function openOverlay(index) {
             const data = entriesData[index];
             if (!data) return;
@@ -370,14 +398,16 @@
             document.getElementById('overlay-image').src = data.coverImage;
             document.getElementById('overlay-text-body').textContent = data.text;
 
+            // Render Images Tab
             const imgGrid = document.getElementById('overlay-images-grid');
             imgGrid.innerHTML = data.gallery.map(url => `
                 <img src="${url}" class="w-full h-28 object-cover rounded-xl border border-slate-800">
             `).join('');
 
+            // Render Files Tab with download functionality
             const fileList = document.getElementById('overlay-files-list');
             fileList.innerHTML = data.files.map(f => `
-                <a href="#" class="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500 transition group">
+                <a href="${f.path}" download="${f.downloadName || ''}" class="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-indigo-500 transition group">
                     <div class="flex items-center gap-3">
                         <i class="ph ${f.icon} text-indigo-400 text-xl"></i>
                         <div>
